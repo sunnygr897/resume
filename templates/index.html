@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Favicon -->
+    <link href={{ url_for('static',filename='img/favicon.ico') }} rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='lib/owlcarousel/assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='lib/lightbox/css/lightbox.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='lib/animate/animate.min.css') }}">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
+
+    <!-- Template Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+
+<body >
+
+    <div class="container">
+        <div class="row g-5">
+
+            <div class="col-lg-8">
+                <!-- About Start -->
+                <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                    <h1 class="title pb-3 mb-5">About Me</h1>
+                    <p>I am Sunny ,Resident of Delhi,India.I am currently pursuing Masters in Computer Science At Delhi Technology University.</p>
+                    <div class="row mb-4">
+                        <div class="col-sm-6 py-1">
+                            <span class="fw-medium text-primary">Name:</span>{{bio.name}}
+                        </div>
+                        <div class="col-sm-6 py-1">
+                            <span class="fw-medium text-primary">Birthday:</span>{bio.birthday}}
+                        </div>
+                        <div class="col-sm-6 py-1">
+                            <span class="fw-medium text-primary">Degree:</span>{bio.degree}}
+                        </div>
+                        <div class="col-sm-6 py-1">
+                            <span class="fw-medium text-primary">Phone:</span>{bio.mobile}}
+                        </div>
+                        <div class="col-sm-6 py-1">
+                            <span class="fw-medium text-primary">Email:</span>{bio.email}}
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-5 col-lg-8 col-xl-5">
+                            <div class="d-flex bg-secondary p-4">
+                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">{{bio.experience}}</h1>
+                                <div class="ps-3">
+                                    <p class="mb-0">Years of</p>
+                                    <h5 class="mb-0">Experience</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-lg-8 col-xl-5">
+                            <div class="d-flex bg-secondary p-4">
+                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">{bio.gpa}}</h1>
+                                <div class="ps-3">
+                                    <p class="mb-0">GPA</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 col-lg-8 col-xl-4">
+                            <div class="d-flex bg-secondary p-4">
+                                <h1 class="flex-shrink-0 display-5 text-primary mb-0" data-toggle="counter-up">1100</h1>
+                                <div class="ps-3">
+                                    <p class="mb-0">AIR</p>
+                                    <h5 class="mb-0">GATE</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+            <div class="col-lg-4 sticky-lg-top vh-100" align="right">
+                <div class="d-flex flex-column h-100 text-center overflow-auto shadow">
+                    <img class="w-100 img-fluid mb-4" src={{ url_for('static',filename='img/profile.jpg') }} alt="Image">
+                    <h1 class="text-primary mt-2">Sunny</h1>
+                    <div class="mb-4" style="height: 22px;">
+                        <h4 class="typed-text-output d-inline-block text-light"></h4>
+                        <div class="typed-text d-none">Software Engineer</div>
+                    </div>
+                    <div class="d-flex justify-content-center mt-auto mb-3">
+                        <a class="btn btn-secondary btn-square mx-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row g-5">
+
+            <!-- Skills Start -->
+            <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                <h1 class="title pb-3 mb-5">Skills</h1>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="skill mb-4">
+                            <div class="d-flex justify-content-between">
+                                <p class="mb-2">C++</p>
+                                <p class="mb-2" id="cpp"></p>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-primary" role="progressbar" aria-valuenow={{skills.cpp}} aria-valuemin="0" aria-valuemax="100" id="cpparia"></div>
+                            </div>
+                        </div>
+                        <div class="skill mb-4">
+                            <div class="d-flex justify-content-between">
+                                <p class="mb-2">HTML</p>
+                                <p class="mb-2" id="html"></p>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" aria-valuenow={{skills.html}} aria-valuemin="0" aria-valuemax="100" id="htmlaria"></div>
+                            </div>
+                        </div>
+                        <div class="skill mb-4">
+                            <div class="d-flex justify-content-between">
+                                <p class="mb-2">PHP</p>
+                                <p class="mb-2" id="php"></p>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow={{skills.php}} aria-valuemin="0" aria-valuemax="100" id="phparia"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="skill mb-4">
+                            <div class="d-flex justify-content-between">
+                                <p class="mb-2">Javascript</p>
+                                <p class="mb-2" id="java"></p>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-danger" role="progressbar" aria-valuenow={{skills.java}} aria-valuemin="0" aria-valuemax="100" id="javaaria"></div>
+                            </div>
+                        </div>
+                        <div class="skill mb-4">
+                            <div class="d-flex justify-content-between">
+                                <p class="mb-2">Python</p>
+                                <p class="mb-2" id="python"></p>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-success" role="progressbar" aria-valuenow={{skills.python}} aria-valuemin="0" aria-valuemax="100" id="pythonaria"></div>
+                            </div>
+                        </div>
+                        <div class="skill mb-4">
+                            <div class="d-flex justify-content-between">
+                                <p class="mb-2">Android</p>
+                                <p class="mb-2" id="android"></p>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar bg-info" role="progressbar" aria-valuenow={{skills.android}} aria-valuemin="0" aria-valuemax="100" id="androidaria"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Skills End -->
+            <!-- Expericence Start -->
+            <section class="py-5 wow fadeInUp" data-wow-delay="0.1s" align="right">
+                <h1 align="right">Expericence</h1>
+                <span class="bi bi-arrow-right fs-4 text-light" style="top: -5px; left: -50px;" align="right"></span>
+                <h5 class="mb-1">Software Engineer</h5>
+                <p class="mb-2">Samsung <small>2019 - 2020</small></p>
+                <p>Contributed in Development and Management of Hospitality TV Software.</p>
+            </section>
+            <!-- Expericence End -->
+            <!-- Services Start -->
+            <section class="py-5 border-bottom wow fadeInUp" data-wow-delay="0.1s">
+                <h1 class="title pb-3 mb-5">Projects</h1>
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <div class="service-item">
+                            <i class="fa fa-2x fa-laptop-code mx-auto mb-4"></i>
+                            <h5 class="mb-2">Machine Learning</h5>
+                            <p class="mb-0">Costa Rican Household Poverty Prediction</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="service-item">
+                            <i class="fab fa-2x fa-android mx-auto mb-4"></i>
+                            <h5 class="mb-2">Apps Development</h5>
+                            <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="service-item">
+                            <i class="fa fa-2x fa-search mx-auto mb-4"></i>
+                            <h5 class="mb-2">SEO</h5>
+                            <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="service-item">
+                            <i class="fa fa-2x fa-edit mx-auto mb-4"></i>
+                            <h5 class="mb-2">Content Creating</h5>
+                            <p class="mb-0">Justo sit justo eos amet tempor amet clita amet ipsum eos elitr. Amet lorem lorem lorem est amet labore</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Services End -->
+            <!-- Contact Start -->
+            <section class="py-5 wow fadeInUp" data-wow-delay="0.1s" id="contact">
+                <h1 class="title pb-3 mb-5">Contact Me</h1>
+                <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a></p>
+                <form>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control border-0 bg-secondary" id="name" placeholder="Your Name">
+                                <label for="name">Your Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input type="email" class="form-control border-0 bg-secondary" id="email" placeholder="Your Email">
+                                <label for="email">Your Email</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <input type="text" class="form-control border-0 bg-secondary" id="subject" placeholder="Subject">
+                                <label for="subject">Subject</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control border-0 bg-secondary" placeholder="Leave a message here" id="message" style="height: 200px"></textarea>
+                                <label for="message">Message</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+            <!-- Contact End -->
+            <!-- Footer Start -->
+            <section class="wow fadeIn" data-wow-delay="0.1s">
+                <div class="bg-secondary text-light text-center p-5">
+                    <div class="d-flex justify-content-center mb-4">
+                        <a class="btn btn-dark btn-square mx-1" href="#"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-square mx-1" href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-square mx-1" href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-dark btn-square mx-1" href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <div class="d-flex justify-content-center mb-3">
+                        <a class="text-light px-3 border-end" href="#">Privacy</a>
+                        <a class="text-light px-3 border-end" href="#">Terms</a>
+                        <a class="text-light px-3 border-end" href="#">FAQs</a>
+                        <a class="text-light px-3" href="#">Help</a>
+                    </div>
+
+                    <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                    <p class="m-0">&copy; All Rights Reserved. Designed by <a href="https://htmlcodex.com">HTML Codex</a></p>
+                </div>
+            </section>
+            <!-- Footer End -->
+
+        </div>
+    </div>
+
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src={{ url_for('static',filename='lib/wow/wow.min.js') }}></script>
+    <script src={{ url_for('static',filename='lib/typed/typed.min.js') }}></script>
+    <script src={{ url_for('static',filename='lib/easing/easing.min.js') }}></script>
+    <script src={{ url_for('static',filename='lib/waypoints/waypoints.min.js') }}></script>
+    <script src={{ url_for('static',filename='lib/counterup/counterup.min.js') }}></script>
+    <script src={{ url_for('static',filename='lib/owlcarousel/owl.carousel.min.js') }}></script>
+    <script src={{ url_for('static',filename='lib/isotope/isotope.pkgd.min.js') }}></script>
+    <script src={{ url_for('static',filename='lib/lightbox/js/lightbox.min.js') }}></script>
+
+    <!-- Template Javascript -->
+    <script src={{ url_for('static',filename='js/main.js') }}></script>
+</body>
+</html>
