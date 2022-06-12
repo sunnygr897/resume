@@ -15,9 +15,10 @@ from mysql.connector import errorcode
 # Obtain connection string information from the portal
 
 config = {
-  'host':'<127.0.0.1',
-  'user':'root',
-  'password':'toor',
+  'host':'sunny97.database.windows.net',
+  'port':'1433',
+  'user':'sunny97',
+  'password':'Sunny@2022',
   'database':'resume'
 }
 
