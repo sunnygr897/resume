@@ -30,7 +30,7 @@ handlers:
 
 
 env_variables:
-  CLOUD_SQL_USERNAME: 'root'
-  CLOUD_SQL_PASSWORD: 'toor'
-  CLOUD_SQL_DATABASE_NAME: 'resume'
-  CLOUD_SQL_CONNECTION_NAME: 'resume-355016:us-central1:sql-resume'
+  CLOUD_SQL_USERNAME: 'User'
+  CLOUD_SQL_PASSWORD: 'Password'
+  CLOUD_SQL_DATABASE_NAME: 'db'
+  CLOUD_SQL_CONNECTION_NAME: 'Cloud SQL connection string'
