@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row ">
+        <div class="col-sm-3 sticky-lg-top" align="right">
+            <div class="d-flex flex-column text-center overflow-auto shadow">
+                <img src={{ url_for('static',filename='img/profile.jpg') }}>
+                <h1 class="text-primary mt-2">{{bio.name}}</h1>
+                <span class="fw-medium text-primary mb-3">{{bio.qualification}}</span>
+                <div class="d-flex justify-content-center mb-3">
+                    <table>
+                        <tbody>
+                            <tr id="linkedin" bgcolor="#f2f2f2" class="edit_bio">
+                                <td width="50%" class="edit_td">
+                                    <input type="text" name="linkedin" value="{{bio.linkedin}}" class="editbox" id="bio_input_linkedin" />
+                                </td>
+                            </tr>
+                            <tr id="leetcode" bgcolor="#f2f2f2" class="edit_bio">
+                                <td width="50%" class="edit_td">
+                                    <input type="text" name="leetcode" value="{{bio.leetcode}}" class="editbox" id="bio_input_leetcode" />
+                                </td>
+                            </tr>
+                            <tr id="github" bgcolor="#f2f2f2" class="edit_bio">
+                                <td width="50%" class="edit_td">
+                                    <input type="text" name="github" value="{{bio.github}}" class="editbox" id="bio_input_github" />
+                                </td>
+                            </tr>
+                            <tr id="email" bgcolor="#f2f2f2" class="edit_bio">
+                                <td width="50%" class="edit_td">
+                                    <input type="email" name="email" value="{{bio.email}}" class="editbox" id="bio_input_email" />
+                                </td>
+                            </tr>
+                            <tr id="phone" bgcolor="#f2f2f2" class="edit_bio">
+                                <td width="50%" class="edit_td">
+                                    <input type="number" maxlength="10" name="phone" value="{{bio.phone}}" class="editbox" id="bio_input_phone" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-9">
+            <h1 class="text-primary"><u>About Me</u></h1>
+            <div id="about" bgcolor="#f2f2f2" class="edit_bio">
+                <input style="width:100%;" type="text" name="about" value="{{bio.about}}" class="editbox" id="bio_input_about" />
+            </div>
+            <div class="row" style="margin-top:25px;">
+                <table>
+                    <tbody>
+                        <tr id="acheivements" bgcolor="#f2f2f2" class="edit_acheivements">
+                            <td width="50%" class="edit_td">
+                                <span>Experience(Months)</span>
+                                <input type="number" name="experience" value="{{acheivements.experience}}" class="editbox" id="experience_acheivements" />
+                            </td>
+                            <td width="50%" class="edit_td">
+                                <span>GATE AIR</span>
+                                <input type="number" name="gate" value="{{acheivements.gate}}" class="editbox" id="gate_acheivements" />
+                            </td>
+                            <td width="50%" class="edit_td">
+                                <span>leetcode Rating</span>
+                                <input type="number" name="leetcode" value="{{acheivements.leetcode}}" class="editbox" id="leetcode_acheivements" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h1 class="text-primary mt-3 mb-3"><u>Education</u></h1>
+                <table class="table-sm table-bordered ">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Institue</th>
+                            <th scope="col">Course</th>
+                            <th scope="col">CGPA/Percentage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for i in education%}
+                        <tr id="education_{{i.id}}" bgcolor="#f2f2f2" class="edit_education">
+                            <td width="50%" class="edit_td">
+                                <input type="text" name="institute" value="{{i.id}}" id="id_education_{{i.id}}" readonly />
+                            </td>
+                            <td width="50%" class="edit_td">
+                                <input type="text" name="institute" value="{{i.institute}}" class="editbox" id="institute_education_{{i.id}}" />
+                            </td>
+                            <td width="50%" class="edit_td">
+                                <input type="text" name="course" value="{{i.course}}" class="editbox" id="course_education_{{i.id}}" />
+                            </td>
+                            <td width="50%" class="edit_td">
+                                <input type="text" name="gpa" value="{{i.gpa}}" class="editbox" id="gpa_education_{{i.id}}" />
+                            </td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h1 class="text-primary"><u>Expericence</u></h1>
+                <ul>
+                    {%for i in experience%}
+                    <li id="experience_{{i.id}}" bgcolor="#f2f2f2" class="edit_experience">
+                        <input id="id_experience_{{i.id}}" readonly value="{{i.id}}"/>
+                        <img src="{{ url_for('static',filename='img/')}}{{i.image}}" width="125" height="30" />
+                        <h5 class="mb-1 mt-2">{{i.title}}</h5>
+                        <p class="mb-2"><small>{{i.duration}}</small></p>
+                        <input style="width:100%"; type="text" name="description" value="{{i.description}}" class="editbox" id="description_experience_{{i.id}}"/>
+                    </li>
+                    {%endfor%}
+                </ul>
+
+            </div>
+            <div>
+                <h1 class="text-primary"><u>Projects</u></h1>
+                <ul>
+                    {%for i in projects%}
+                    <li id="project_{{i.id}}" bgcolor="#f2f2f2" class="edit_project">
+                        <input id="id_project_{{i.id}}" readonly value="{{i.id}}"/>
+                        <input style="width:50%" type="text" name="title" value="{{i.title}}" class="editbox" id="title_project_{{i.id}}" />
+                        <input style="width:100%" type="text" name="about" value="{{i.about}}" class="editbox" id="about_project_{{i.id}}" />
+                    </li>
+                    {%endfor%}
+                </ul>
+            </div>
+            <div>
+                <h1 class="text-primary"><u>Skills</u></h1>
+                <table>
+                    <tbody>
+                        <tr bgcolor="#f2f2f2" class="edit_skills">
+                            <td width="100%" class="edit_td">
+                                <span>Cpp</span>
+                                <input type="number" name="cpp" value="{{skills.cpp}}" class="editbox" id="cpp" />
+                            </td>
+                        </tr>
+                        <tr bgcolor="#f2f2f2" class="edit_skills">
+                            <td width="100%" class="edit_td">
+                                <span>JavaScript</span>
+                                <input type="number" name="java" value="{{skills.java}}" class="editbox" id="java" />
+                            </td>
+                        </tr>
+                        <tr bgcolor="#f2f2f2" class="edit_skills">
+                            <td width="100%" class="edit_td">
+                                <span>HTML</span>
+                                <input type="number" name="cpp" value="{{skills.html}}" class="editbox" id="html" />
+                            </td>
+                        </tr>
+                        <tr bgcolor="#f2f2f2" class="edit_skills">
+                            <td width="100%" class="edit_td">
+                                <span>Python</span>
+                                <input type="number" name="python" value="{{skills.python}}" class="editbox" id="python" />
+                            </td>
+                        </tr>
+                        <tr bgcolor="#f2f2f2" class="edit_skills">
+                            <td width="100%" class="edit_td">
+                                <span>PHP</span>
+                                <input type="number" name="php" value="{{skills.php}}" class="editbox" id="php" />
+                            </td>
+                        </tr>
+                        <tr bgcolor="#f2f2f2" class="edit_skills">
+                            <td width="100%" class="edit_td">
+                                <span>MySQL</span>
+                                <input type="number" name="mysql" value="{{skills.mysql}}" class="editbox" id="mysql" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}
+

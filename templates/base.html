@@ -14,6 +14,7 @@
         {% block content %} {% endblock %}
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='scripts/edit.js') }}"></script>
     <script type="text/javascript">
         function setprogress() {
             document.getElementById("cpparia").style.width = '{{ skills.cpp }}%';
