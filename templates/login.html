@@ -5,21 +5,30 @@
     <title>Login</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/bootstrap.min.css') }}">
 </head>
 <body>
-    <div class="login">
-        <h1>Login</h1>
-        <form action="{{ url_for('login') }}" method="post" style="align-content:center">
-            <label for="username">
-                <i class="fas fa-user"></i>
-            </label>
-            <input type="text" name="username" placeholder="Username" id="username" required>
-            <label for="password">
-                <i class="fas fa-lock"></i>
-            </label>
-            <input type="password" name="password" placeholder="Password" id="password" required>
-            <input type="submit" value="Login">
-        </form>
+    <div>
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                        <h3 class="mb-5">Sign in</h3>
+                        <form action="{{ url_for('login') }}" method="post" style="align-content:center">
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="username">UserName</label>
+                                <input type="text" name="username" id="username" class="form-control-lg" />
+                            </div>
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="password">Password</label>
+                                <input type="password" name="password" id="password" class="form-control-lg" />
+                            </div>
+                            <input class="btn btn-primary btn-lg btn-block" type="submit" value="Login">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
