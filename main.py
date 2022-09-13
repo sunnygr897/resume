@@ -6,7 +6,7 @@ It contains the definition of routes and views for the application.
 from flask import Flask
 from flask import render_template
 from flask import url_for, request, redirect, session
-
+import hashlib
 import pymysql
 import os
 
@@ -57,8 +57,9 @@ def login():
         
         username = request.form['username']
         password = request.form['password']
+        password_hash = hashlib.md5(password.encode()).hexdigest()
         cursor=database.cursor()
-        cursor.execute('SELECT id,username,level FROM accounts WHERE username = %s AND password = %s', (username, password,))
+        cursor.execute('SELECT id,username,level FROM accounts WHERE username = %s AND password = %s', [username, password_hash])
         account = cursor.fetchone()
        
         if account:
